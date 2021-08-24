@@ -1,1 +1,385 @@
-[]
+[
+    {
+        "id": "ece654c47e77077c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ecb314b826cbd94e",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "da20517d90e8326b",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "65acd3fdf14fb5b0",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "DASHBOARD",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5435f88f278738f4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "eba27b0f845c16f3",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "65acd3fdf14fb5b0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d3a595c8aa993c92",
+        "type": "inject",
+        "z": "ece654c47e77077c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "c95d1ab9c093c600",
+                "6c4103939768622b"
+            ]
+        ]
+    },
+    {
+        "id": "700a85bddf824e50",
+        "type": "debug",
+        "z": "ece654c47e77077c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c95d1ab9c093c600",
+        "type": "function",
+        "z": "ece654c47e77077c",
+        "name": "",
+        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\n// Return the message so it can be sent on\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "700a85bddf824e50"
+            ]
+        ]
+    },
+    {
+        "id": "6c4103939768622b",
+        "type": "debug",
+        "z": "ece654c47e77077c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bbb4a9a874de8f33",
+        "type": "ui_button",
+        "z": "ecb314b826cbd94e",
+        "name": "",
+        "group": "eba27b0f845c16f3",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Timestamp",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "1adca1033a828763",
+                "c4f7554fe3972601"
+            ]
+        ]
+    },
+    {
+        "id": "c4d9336b6acf7a32",
+        "type": "ui_switch",
+        "z": "ecb314b826cbd94e",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "eba27b0f845c16f3",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 70,
+        "y": 220,
+        "wires": [
+            [
+                "c6d5b09a20616fa1",
+                "c4f7554fe3972601"
+            ]
+        ]
+    },
+    {
+        "id": "1adca1033a828763",
+        "type": "ui_text",
+        "z": "ecb314b826cbd94e",
+        "group": "eba27b0f845c16f3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Display Text 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 400,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c6d5b09a20616fa1",
+        "type": "ui_text",
+        "z": "ecb314b826cbd94e",
+        "group": "eba27b0f845c16f3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Display Text 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 400,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c4f7554fe3972601",
+        "type": "ui_toast",
+        "z": "ecb314b826cbd94e",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7644a185666cdca8",
+        "type": "ui_slider",
+        "z": "ecb314b826cbd94e",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "eba27b0f845c16f3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "9c7b6164cc5546a7"
+            ]
+        ]
+    },
+    {
+        "id": "9c7b6164cc5546a7",
+        "type": "ui_gauge",
+        "z": "ecb314b826cbd94e",
+        "name": "",
+        "group": "eba27b0f845c16f3",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#193e19",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 300,
+        "wires": []
+    }
+]
